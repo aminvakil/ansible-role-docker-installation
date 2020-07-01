@@ -1,0 +1,19 @@
+- name: Include CentOS 7
+  include_tasks: centos7.yml
+  when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7'
+
+- name: Include CentOS 8
+  include_tasks: centos8.yml
+  when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '8'
+
+- name: Include Fedora
+  include_tasks: fedora.yml
+  when: ansible_distribution == 'Fedora'
+
+- name: Include Debian
+  include_tasks: debian.yml
+  when: ansible_distribution == 'Debian'
+
+- name: Include Docker Compose
+  include_tasks: docker-compose.yml
+  when: "{{ docker_compose }}"

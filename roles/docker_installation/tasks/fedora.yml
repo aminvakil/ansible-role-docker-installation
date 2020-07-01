@@ -1,0 +1,14 @@
+- name: Add docker-ce repo
+  get_url:
+    url: https://download.docker.com/linux/fedora/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    mode: '0644'
+    owner: root
+    group: root
+
+- name: Install docker-ce
+  dnf:
+    name: {{ docker_packages }}
+  notify:
+    - enable docker
+    - start docker

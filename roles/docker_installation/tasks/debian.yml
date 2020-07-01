@@ -1,0 +1,13 @@
+- name: Add docker-ce gpg key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+
+- name: Add docker-ce repository
+  apt_repository:
+    repo: deb [arch={{ ansible_architecture }}] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
+    state: present
+
+- name: Install docker-ce
+  apt:
+    name: {{ docker_packages }}
