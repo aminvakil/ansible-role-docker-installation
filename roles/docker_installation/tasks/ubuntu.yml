@@ -12,6 +12,7 @@
 - name: Install docker-ce
   apt:
     name: "{{ docker_packages }}"
+    state: latest
   notify:
     - enable docker
     - start docker
