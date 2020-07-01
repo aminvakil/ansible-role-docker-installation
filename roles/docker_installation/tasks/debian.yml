@@ -10,4 +10,4 @@
 
 - name: Install docker-ce
   apt:
-    name: {{ docker_packages }}
+    name: "{{ docker_packages }}"
