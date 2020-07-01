@@ -1,4 +1,8 @@
 ---
+- name: Install requirements
+  yum:
+    name: {{ centos7_requirements }}
+
 - name: Add docker-ce repo
   get_url:
     url: https://download.docker.com/linux/centos/docker-ce.repo

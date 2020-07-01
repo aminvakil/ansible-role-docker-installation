@@ -2,6 +2,9 @@
 docker_compose: false
 docker_compose_version: 1.26.1
 docker_packages:
- - docker-ce
- - docker-ce-cli
- - containerd.io
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+centos7_requirements:
+  - device-mapper-persistent-data
+  - lvm2
