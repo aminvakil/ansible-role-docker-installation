@@ -8,7 +8,8 @@
 
 - name: Install docker-ce
   shell: dnf install {{ docker_packages }} --nobest -y
-  warn: false
+  args:
+    warn: false
   notify:
     - enable docker
     - start docker

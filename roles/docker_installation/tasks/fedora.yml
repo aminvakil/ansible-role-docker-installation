@@ -8,7 +8,7 @@
 
 - name: Install docker-ce
   dnf:
-    name: {{ docker_packages }}
+    name: "{{ docker_packages }}"
   notify:
     - enable docker
     - start docker
