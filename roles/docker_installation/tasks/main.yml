@@ -21,4 +21,4 @@
 
 - name: Include Docker Compose
   include_tasks: docker-compose.yml
-  when: "{{ docker_compose }}"
+  when: docker_compose|bool

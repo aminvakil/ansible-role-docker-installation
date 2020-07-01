@@ -1,6 +1,6 @@
 ---
 - name: Install gnupg2
-  apt: 
+  apt:
     name: gnupg2
 
 - name: Add docker-ce gpg key

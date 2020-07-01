@@ -34,7 +34,6 @@ script:
   - 'docker run --detach --privileged --cap-add=ALL -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /lib/modules:/lib/modules:ro --volume="${PWD}":/etc/ansible/roles/docker-installation:ro ${distribution}-${version}:docker > "${container_id}"'
   - 'docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/docker-installation/docker.yml --syntax-check'
   - 'docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/docker-installation/docker.yml -i /etc/ansible/roles/docker-installation/hosts'
-  - 'docker exec "$(cat ${container_id})" journalctl -xe'
   - 'docker exec "$(cat ${container_id})" systemctl status docker'
   - >
     docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/docker-installation/docker.yml -i /etc/ansible/roles/docker-installation/hosts
