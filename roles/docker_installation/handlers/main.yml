@@ -1,7 +1,8 @@
+---
 - name: enable docker
   systemd:
     name: docker
-    enabled: yes
+    enabled: true
 
 - name: start docker
   systemd:

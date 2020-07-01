@@ -1,6 +1,7 @@
-- docker_compose: no
-- docker_compose_version: 1.26.1
-- docker_packages:
-  - docker-ce
-  - docker-ce-cli
-  - containerd.io
+---
+docker_compose: false
+docker_compose_version: 1.26.1
+docker_packages:
+ - docker-ce
+ - docker-ce-cli
+ - containerd.io

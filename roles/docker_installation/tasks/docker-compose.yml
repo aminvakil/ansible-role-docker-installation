@@ -1,3 +1,4 @@
+---
 - name: Install docker-compose
   get_url:
     url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ uname -s }}-{{ uname -m }}
