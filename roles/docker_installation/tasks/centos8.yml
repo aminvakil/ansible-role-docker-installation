@@ -10,7 +10,7 @@
 - name: Install docker-ce
   shell: dnf install {{ item }} --nobest -y
   with_items:
-    - {{ docker_packages }}
+    - "{{ docker_packages }}"
   args:
     warn: false
   notify:
