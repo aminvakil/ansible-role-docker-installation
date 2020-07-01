@@ -9,12 +9,10 @@ env:
     version: 7
   - distribution: debian
     version: buster
-  - distribution: ubuntu
-    #    version: focal
     #  - distribution: ubuntu
-    version: bionic
+    #    version: focal
   - distribution: ubuntu
-    version: xenial
+    version: bionic
     #  - distribution: fedora
     #    version: 32
   - distribution: fedora
