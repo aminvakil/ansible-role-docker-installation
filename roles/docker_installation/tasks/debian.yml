@@ -16,3 +16,6 @@
 - name: Install docker-ce
   apt:
     name: "{{ docker_packages }}"
+  notify:
+    - enable docker
+    - start docker
