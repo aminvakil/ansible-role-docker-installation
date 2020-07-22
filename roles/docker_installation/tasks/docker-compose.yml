@@ -1,9 +1,9 @@
 ---
 - name: Install docker-compose
   get_url:
-    url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ uname -s }}-{{ uname -m }}
+    url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}
     dest: /usr/local/bin/docker-compose
     mode: '0755'
     owner: root
     group: root
-    checksum: sha256:https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ uname -s }}-{{ uname -m }}.sha256
+    checksum: sha256:13e50875393decdb047993c3c0192b0a3825613e6dfc0fa271efed4f5dbdd6eb

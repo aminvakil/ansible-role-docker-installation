@@ -1,5 +1,5 @@
 ---
-docker_compose: false
+docker_compose: true
 docker_compose_version: 1.26.2
 docker_packages:
   - docker-ce
