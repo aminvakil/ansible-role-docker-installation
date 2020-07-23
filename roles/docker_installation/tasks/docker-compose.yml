@@ -1,4 +1,19 @@
 ---
+- name: Get docker-compose checksum
+  get_url:
+    url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}.sha256
+    dest: /tmp/docker_compose_checksum
+    force: true
+
+- name: Get sha256sum from docker-compose checksum file
+  slurp:
+    src: /tmp/docker_compose_checksum
+  register: docker_compose_checksum_encoded
+
+- name: Decode docker_compose_checksum_encoded
+  set_fact:
+    docker_compose_checksum: '{{ docker_compose_checksum_encoded["content"] | b64decode }}'
+
 - name: Install docker-compose
   get_url:
     url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}
@@ -6,4 +21,5 @@
     mode: '0755'
     owner: root
     group: root
-    checksum: sha256:13e50875393decdb047993c3c0192b0a3825613e6dfc0fa271efed4f5dbdd6eb
+    checksum: 'sha256:{{ docker_compose_checksum.split(" ")[0] }}'
+    force: true
