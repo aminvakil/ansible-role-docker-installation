@@ -16,4 +16,4 @@
   notify:
     - enable docker
     - start docker
-  changed_when: false
+  changed_when: "'molecule-idempotence-notest' not in ansible_skip_tags"
