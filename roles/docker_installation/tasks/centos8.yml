@@ -16,4 +16,4 @@
   notify:
     - enable docker
     - start docker
-  changed_when: true
+  changed_when: false
