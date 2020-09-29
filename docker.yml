@@ -1,5 +1,5 @@
 ---
- - hosts: all
-   become: yes
-   roles:
-     - docker_installation
+  - hosts: all
+    become: yes
+    roles:
+      - docker_installation
