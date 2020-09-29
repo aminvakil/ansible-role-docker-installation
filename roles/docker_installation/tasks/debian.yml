@@ -1,7 +1,7 @@
 ---
-- name: Install gnupg2
+- name: Install requirements
   apt:
-    name: gnupg2
+    name: "{{ debian_requirements }}"
 
 - name: Add docker-ce gpg key
   apt_key:

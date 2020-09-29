@@ -1,7 +1,7 @@
 ---
 - name: Install requirements
   apt:
-    name: "{{ ubuntu_requirements }}"
+    name: "{{ debian_requirements }}"
 
 - name: Add docker-ce gpg key
   apt_key:

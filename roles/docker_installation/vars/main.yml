@@ -8,7 +8,7 @@ docker_packages:
 centos7_requirements:
   - device-mapper-persistent-data
   - lvm2
-ubuntu_requirements:
+debian_requirements:
   - apt-transport-https
   - ca-certificates
   - gnupg-agent
