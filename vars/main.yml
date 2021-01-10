@@ -5,6 +5,7 @@ docker_packages:
   - docker-ce
   - docker-ce-cli
   - containerd.io
+  - iptables
 centos7_requirements:
   - device-mapper-persistent-data
   - lvm2
