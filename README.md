@@ -13,7 +13,7 @@ Role Variables
 
 `docker_compose` which is a boolean you can change it true or false if you want docker compose to be installed.
 
-`docker_compose_version` which currently is the latest version (1.27.4).
+`docker_compose_version` which currently is the latest version (1.28.0).
 
 Dependencies
 ------------
