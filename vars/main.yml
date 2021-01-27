@@ -1,6 +1,6 @@
 ---
 docker_compose: true
-docker_compose_version: 1.28.0
+docker_compose_version: 1.28.2
 docker_packages:
   - docker-ce
   - docker-ce-cli
