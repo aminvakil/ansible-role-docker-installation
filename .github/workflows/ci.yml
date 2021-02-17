@@ -41,6 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        docker_compose: [false, true]
         include:
           - distro: centos8
             playbook: converge.yml
@@ -84,6 +85,7 @@ jobs:
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
           MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
+          DOCKER_COMPOSE: ${{ matrix.docker_compose }}
 
   deploy:
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'

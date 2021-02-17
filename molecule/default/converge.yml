@@ -1,5 +1,7 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    docker_compose: "{{ lookup('env', 'DOCKER_COMPOSE') }}"
   roles:
     - role: aminvakil.docker_installation
