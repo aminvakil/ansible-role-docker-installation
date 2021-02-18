@@ -44,25 +44,15 @@ jobs:
         docker_compose: [false, true]
         include:
           - distro: centos8
-            playbook: converge.yml
           - distro: centos7
-            playbook: converge.yml
           - distro: debian10
-            playbook: converge.yml
           - distro: ubuntu20.04
-            playbook: converge.yml
           - distro: ubuntu18.04
-            playbook: converge.yml
           - distro: ubuntu16.04
-            playbook: converge.yml
           # - distro: fedora33
-          #   playbook: converge.yml
           - distro: fedora32
-            playbook: converge.yml
           - distro: fedora31
-            playbook: converge.yml
           - distro: fedora30
-            playbook: converge.yml
 
     steps:
       - name: Check out the codebase.
