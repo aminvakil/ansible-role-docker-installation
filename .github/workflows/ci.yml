@@ -42,17 +42,17 @@ jobs:
     strategy:
       matrix:
         docker_compose: [false, true]
-        include:
-          - distro: centos8
-          - distro: centos7
-          - distro: debian10
-          - distro: ubuntu20.04
-          - distro: ubuntu18.04
-          - distro: ubuntu16.04
-          # - distro: fedora33
-          - distro: fedora32
-          - distro: fedora31
-          - distro: fedora30
+        distro:
+          - centos8
+          - centos7
+          - debian10
+          - ubuntu20.04
+          - ubuntu18.04
+          - ubuntu16.04
+          - fedora33
+          - fedora32
+          - fedora31
+          - fedora30
 
     steps:
       - name: Check out the codebase.
