@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: Amin Vakil
+  author: aminvakil
   role_name: docker_installation
   description: Docker and Docker-Compose Installer
   license: GPL-3.0-only
