@@ -8,12 +8,9 @@
     group: root
 
 - name: Install docker-ce
-  command: dnf install {{ item }} --nobest -y
-  with_items:
-    - "{{ docker_packages }}"
-  args:
-    warn: false
+  dnf:
+    name: "{{ docker_packages }}"
+    nobest: true
   notify:
     - enable docker
     - start docker
-  changed_when: "'molecule-idempotence-notest' not in ansible_skip_tags"
