@@ -4,11 +4,10 @@ galaxy_info:
   role_name: docker_installation
   description: Docker and Docker-Compose Installer
   license: GPL-3.0-only
-  min_ansible_version: 2.1
+  min_ansible_version: 2.11
   platforms:
     - name: EL
       versions:
-        - 6
         - 7
         - 8
     - name: Fedora
