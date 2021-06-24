@@ -43,6 +43,7 @@ jobs:
       matrix:
         docker_compose: [false, true]
         distro:
+          - rockylinux8
           - centos8
           - centos7
           - debian10
