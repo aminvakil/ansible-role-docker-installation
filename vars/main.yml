@@ -12,3 +12,4 @@ debian_requirements:
   - apt-transport-https
   - ca-certificates
   - gnupg-agent
+  - gpg
