@@ -14,6 +14,11 @@
   set_fact:
     docker_compose_checksum: '{{ docker_compose_checksum_encoded["content"] | b64decode }}'
 
+- name: Make sure old docker-compose (< 2.0.0) is not available
+  file:
+    src: /usr/local/bin/docker-compose
+    state: absent
+
 - name: Install docker-compose
   get_url:
     url: https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ (ansible_architecture == 'x86_64') | ternary('amd64', 'unsupported') }}
