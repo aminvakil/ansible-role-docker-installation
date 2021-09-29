@@ -16,7 +16,7 @@
 
 - name: Make sure old docker-compose (< 2.0.0) is not available
   file:
-    src: /usr/local/bin/docker-compose
+    path: /usr/local/bin/docker-compose
     state: absent
 
 - name: Install docker-compose
