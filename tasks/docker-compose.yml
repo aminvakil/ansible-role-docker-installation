@@ -14,7 +14,7 @@
   set_fact:
     docker_compose_checksum: '{{ docker_compose_checksum_encoded["content"] | b64decode }}'
 
-- name: Make sure old docker-compose (< 2.0.0) is not available
+- name: Make sure old docker-compose (< 2.0.0) is not present
   file:
     path: /usr/local/bin/docker-compose
     state: absent
