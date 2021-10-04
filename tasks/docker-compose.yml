@@ -14,11 +14,6 @@
   set_fact:
     docker_compose_checksum: '{{ docker_compose_checksum_encoded["content"] | b64decode }}'
 
-- name: Make sure old docker-compose (< 2.0.0) is not present
-  file:
-    path: /usr/local/bin/docker-compose
-    state: absent
-
 - name: Install docker-compose
   get_url:
     url: https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}
@@ -27,4 +22,11 @@
     owner: root
     group: root
     checksum: 'sha256:{{ docker_compose_checksum.split(" ")[0] }}'
+    force: true
+
+- name: Create a symlink for docker-compose in bin
+  file:
+    src: /usr/libexec/docker/cli-plugins/docker-compose
+    dest: /usr/local/bin/docker-compose
+    state: link
     force: true
