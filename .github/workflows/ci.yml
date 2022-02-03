@@ -67,7 +67,7 @@ jobs:
 
       - name: Install test dependencies.
         run: |
-          pip3 install molecule[docker] --pre
+          pip3 install molecule --pre
 
       - name: Run Molecule tests.
         run: molecule test
