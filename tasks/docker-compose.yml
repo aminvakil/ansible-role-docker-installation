@@ -3,6 +3,7 @@
   get_url:
     url: https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}.sha256
     dest: /tmp/docker_compose_checksum
+    mode: 0644
     force: true
 
 - name: Get sha256sum from docker-compose checksum file
