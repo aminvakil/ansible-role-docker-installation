@@ -1,28 +1,12 @@
 ---
-- name: Get docker-compose checksum
-  get_url:
-    url: https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}.sha256
-    dest: /tmp/docker_compose_checksum
-    mode: 0644
-    force: true
-
-- name: Get sha256sum from docker-compose checksum file
-  slurp:
-    src: /tmp/docker_compose_checksum
-  register: docker_compose_checksum_encoded
-
-- name: Decode docker_compose_checksum_encoded
-  set_fact:
-    docker_compose_checksum: '{{ docker_compose_checksum_encoded["content"] | b64decode }}'
-
 - name: Install docker-compose
   get_url:
-    url: https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}
+    url: https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-{{ ansible_system | lower }}-{{ ansible_architecture }}
     dest: /usr/libexec/docker/cli-plugins/docker-compose
     mode: '0755'
     owner: root
     group: root
-    checksum: 'sha256:{{ docker_compose_checksum.split(" ")[0] }}'
+    checksum: 'sha256:https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/checksums.txt'
     force: true
 
 - name: Create a symlink for docker-compose in bin
