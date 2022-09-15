@@ -1,5 +1,4 @@
 ---
-version: 1
 galaxy_info:
   author: aminvakil
   role_name: docker_installation
