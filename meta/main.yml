@@ -5,6 +5,7 @@ galaxy_info:
   description: Docker and Docker-Compose Installer
   license: GPL-3.0-only
   min_ansible_version: "2.11"
+  standalone: true
   platforms:
     - name: EL
       versions:
