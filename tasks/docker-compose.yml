@@ -1,17 +1,27 @@
 ---
-- name: Install docker-compose
-  get_url:
-    url: https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-{{ ansible_system | lower }}-{{ ansible_architecture }}
-    dest: /usr/libexec/docker/cli-plugins/docker-compose
-    mode: '0755'
-    owner: root
-    group: root
-    checksum: 'sha256:https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/checksums.txt'
-    force: true
+- name: Install docker-compose on non-Debian
+  block:
+    - name: Install docker-compose
+      get_url:
+        url: https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-{{ ansible_system | lower }}-{{ ansible_architecture }}
+        dest: /usr/libexec/docker/cli-plugins/docker-compose
+        mode: '0755'
+        owner: root
+        group: root
+        checksum: 'sha256:https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/checksums.txt'
+        force: true
 
-- name: Create a symlink for docker-compose in bin
-  file:
-    src: /usr/libexec/docker/cli-plugins/docker-compose
-    dest: /usr/local/bin/docker-compose
-    state: link
-    force: true
+    - name: Create a symlink for docker-compose in bin
+      file:
+        src: /usr/libexec/docker/cli-plugins/docker-compose
+        dest: /usr/local/bin/docker-compose
+        state: link
+        force: true
+  when: ansible_distribution != 'Debian'
+
+- name: Install docker compose on Debian
+  block:
+    - name: Install docker compose
+      apt:
+        name: "docker-compose-plugin"
+  when: ansible_distribution == 'Debian'
