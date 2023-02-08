@@ -19,6 +19,9 @@
   include_tasks: ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
 
+- name: Run all handlers
+  meta: flush_handlers
+
 - name: Check docker works correctly
   command: docker run --rm hello-world
   changed_when: false
