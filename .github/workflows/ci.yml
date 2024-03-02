@@ -47,12 +47,11 @@ jobs:
           - centos7
           - debian10
           - debian11
+          - debian12
           - ubuntu22.04
           - ubuntu20.04
           - ubuntu18.04
-          - fedora35
-          - fedora34
-          - fedora33
+          - fedora
 
     steps:
       - name: Check out the codebase.
