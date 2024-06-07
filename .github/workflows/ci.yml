@@ -46,9 +46,9 @@ jobs:
           - debian10
           - debian11
           - debian12
+          - ubuntu24.04
           - ubuntu22.04
           - ubuntu20.04
-          - ubuntu18.04
           - fedora
 
     steps:
