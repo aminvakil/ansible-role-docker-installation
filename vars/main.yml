@@ -1,5 +1,5 @@
 ---
-docker_compose_version: 2.30.2
+docker_compose_version: 2.30.3
 docker_packages:
   - docker-ce
   - docker-ce-cli
