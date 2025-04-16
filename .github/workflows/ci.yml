@@ -47,7 +47,6 @@ jobs:
           - debian12
           - ubuntu24.04
           - ubuntu22.04
-          - fedora
 
     steps:
       - name: Check out the codebase.
