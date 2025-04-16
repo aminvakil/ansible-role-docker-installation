@@ -7,6 +7,11 @@
     owner: root
     group: root
 
+- name: Ensure python3-libdnf5 is present
+  command: dnf install python3-libdnf5 -y
+  register: python3_libdnf5_command_install
+  changed_when: "'Nothing to do.' not in python3_libdnf5_command_install.stdout_lines"
+
 - name: Install docker-ce
   dnf:
     name: "{{ docker_packages }}"
