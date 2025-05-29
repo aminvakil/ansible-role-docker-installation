@@ -3,19 +3,26 @@
   apt:
     name: "{{ debian_requirements }}"
 
-- name: Add docker-ce gpg key
-  apt_key:
+- name: Add Docker's official GPG key
+  get_url:
     url: https://download.docker.com/linux/debian/gpg
-    state: present
+    dest: /usr/share/keyrings/docker.asc
+    owner: root
+    group: root
+    mode: "0644"
 
-- name: Add docker-ce repository
+- name: Add the repository to apt sources
   apt_repository:
-    repo: deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
+    repo: deb [arch=amd64 signed-by=/usr/share/keyrings/docker.asc] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
     state: present
+    filename: docker
 
-- name: Install docker-ce
+- name: Install the Docker packages
   apt:
     name: "{{ docker_packages }}"
-  notify:
-    - enable docker
-    - start docker
+
+- name: Ensure Docker is started and enabled at boot
+  systemd:
+    name: docker
+    state: started
+    enabled: true
