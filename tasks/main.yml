@@ -40,7 +40,3 @@
 - name: Check docker works correctly
   command: docker run --rm hello-world
   changed_when: false
-
-- name: Include Docker Compose
-  include_tasks: docker-compose.yml
-  when: docker_compose|bool

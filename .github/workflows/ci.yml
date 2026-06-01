@@ -41,7 +41,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        docker_compose: [false, true]
         distro:
           - debian11
           - debian12
@@ -70,7 +69,6 @@ jobs:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
-          DOCKER_COMPOSE: ${{ matrix.docker_compose }}
 
   deploy:
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
