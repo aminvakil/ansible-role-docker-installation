@@ -11,3 +11,4 @@ debian_requirements:
   - apt-transport-https
   - ca-certificates
   - gnupg2
+  - python3-debian

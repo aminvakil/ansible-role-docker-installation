@@ -3,19 +3,26 @@
   apt:
     name: "{{ debian_requirements }}"
 
-- name: Add docker-ce gpg key
-  apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
-    state: present
+- name: Remove legacy docker-ce repository list
+  file:
+    path: /etc/apt/sources.list.d/download_docker_com_linux_ubuntu.list
+    state: absent
 
 - name: Add docker-ce repository
-  apt_repository:
-    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_facts["distribution_release"] }} stable
+  deb822_repository:
+    name: docker
+    types: deb
+    uris: https://download.docker.com/linux/ubuntu
+    suites: '{{ ansible_facts["distribution_release"] }}'
+    components: stable
+    architectures: amd64
+    signed_by: https://download.docker.com/linux/ubuntu/gpg
     state: present
 
 - name: Install docker-ce
   apt:
     name: "{{ docker_packages }}"
+    update_cache: true
   notify:
     - enable docker
     - start docker
