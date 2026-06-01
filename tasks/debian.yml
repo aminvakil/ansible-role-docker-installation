@@ -13,7 +13,10 @@
 
 - name: Add the repository to apt sources
   apt_repository:
-    repo: deb [arch=amd64 signed-by=/usr/share/keyrings/docker.asc] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
+    repo: >-
+      deb [arch=amd64 signed-by=/usr/share/keyrings/docker.asc]
+      https://download.docker.com/linux/debian
+      {{ ansible_facts["distribution_release"] }} stable
     state: present
     filename: docker
 
